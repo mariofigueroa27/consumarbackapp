@@ -1,0 +1,35 @@
+spring:
+  profiles:
+    active: dev
+  devtools:
+    restart:
+      enabled: true
+  jpa:
+    show-sql: true
+  datasource:
+    url: jdbc:sqlserver://srvcsmp003.database.windows.net:1433;database=csmpbd03;user=operador@srvcsmp003;password=Fabrica2024$;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
+    username: operador
+    password: Fabrica2024$
+    hikari:
+      auto-commit: false
+      pool-name: Hikari
+
+application:
+  cors:
+    allowed-headers: '*'
+    allowed-methods: '*'
+    allowed-origins: '*'
+    exposed-headers: 'Authorization,Link,X-Total-Count,Content-Disposition'
+    allow-credentials: true
+    max-age: 1800
+  security:
+    authentication:
+      jwt:
+        base64-secret: OTZiZTllMTk0NTE1YjAxYjMyNjIwNzNhNjhhYjU5OWI0Mzc5MDdiMzFhNzIwMThmYWYzNzdlYjNkODQwODhhNzkzYmY1MDZhYTRkZTc5ZTZmNDU0ZmE3OGFkMGM3YmQ4YTEzNGUyMWU1NGVlNzMyOWUyZmU2NzFkNTExNzg0NmE=
+        token-validity-in-seconds: 86400
+        token-validity-in-seconds-for-remember-me: 2592000
+  batch-folder:
+    path: /home/dubuntu/batch-files/
+    ok-suffix: -ok
+    error-suffix: -err
+    extension: .dat

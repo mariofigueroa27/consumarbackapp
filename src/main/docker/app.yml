@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  hutchison-service:
+    image: hutchison-spring:latest
+    ports:
+      - 8080:8080
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:sqlserver://jhipstertest-mssql:1433;database=hutchison
+    container_name: htapp

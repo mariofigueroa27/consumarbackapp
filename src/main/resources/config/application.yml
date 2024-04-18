@@ -1,0 +1,36 @@
+spring:
+  profiles:
+    active: @spring.profiles.active@
+  servlet:
+    multipart:
+      max-file-size: 2MB
+      max-request-size: 2MB
+  application:
+    name: hutchison-spring-app
+  jpa:
+    database: SQL_SERVER
+    open-in-view: false
+    properties:
+      '[hibernate.jdbc.time_zone]': UTC
+      '[hibernate.id.new_generator_mappings]': true
+      '[hibernate.connection.provider_disables_autocommit]': true
+      # hibernate.cache.use_second_level_cache: true
+      # hibernate.cache.use_query_cache: false
+      '[hibernate.generate_statistics]': false
+      '[hibernate.jdbc.batch_size]': 25
+      '[hibernate.order_inserts]': true
+      '[hibernate.order_updates]': true
+      '[hibernate.query.fail_on_pagination_over_collection_fetch]': true
+      '[hibernate.query.in_clause_parameter_padding]': true
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        # physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+  datasource:
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  data:
+    web:
+      pageable:
+        max-page-size: 4000
